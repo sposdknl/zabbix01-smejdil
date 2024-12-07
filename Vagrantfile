@@ -1,0 +1,42 @@
+IMAGE_NAME = "bento/ubuntu-24.04"
+
+Vagrant.configure("2") do |config|
+    config.ssh.insert_key = false
+
+    config.vm.provider "virtualbox" do |zabbix|
+        zabbix.memory = 2048
+        zabbix.cpus = 2
+    end
+
+    config.vm.define "zabbix" do |zabbix|
+        zabbix.vm.box = IMAGE_NAME
+        zabbix.vm.network "forwarded_port", guest: 22, host: 2202, host_ip: "127.0.0.1"
+	zabbix.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+        zabbix.vm.hostname = "zabbix"
+    end
+
+    config.vm.provision "file", source: "id_rsa.pub", destination: "~/.ssh/me.pub"
+
+    config.vm.provision "shell", inline: <<-SHELL
+    	cat /home/vagrant/.ssh/me.pub >> /home/vagrant/.ssh/authorized_keys
+    SHELL
+   
+    config.vm.provision "shell", inline: <<-SHELL
+    	sudo apt update
+    	sudo apt install -y ansible
+    	sudo -u vagrant ansible-galaxy collection install community.zabbix --force
+	sudo -u vagrant ansible-galaxy role install geerlingguy.mysql
+	sudo -u vagrant ansible-galaxy role install geerlingguy.apache
+	sudo -u vagrant ansible-galaxy role install geerlingguy.php
+	
+    SHELL
+
+    config.vm.provision "ansible_local" do |ansible|
+    	ansible.playbook = "playbook.yml"
+	ansible.compatibility_mode = "2.0"
+	ansible.inventory_path = "hosts.ini"
+	ansible.limit = 'all'
+	ansible.verbose = 'v'
+    end
+
+end

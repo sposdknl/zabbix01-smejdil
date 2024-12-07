@@ -1,0 +1,38 @@
+---
+- name: Install Zabbix Server
+  hosts: zabbix
+  become: true
+
+  roles:
+    - role: geerlingguy.mysql
+    - role: geerlingguy.apache
+    - role: geerlingguy.php
+      vars:
+        php_memory_limit: "128M"
+        php_max_execution_time: "300"
+        php_upload_max_filesize: "256M"
+    - role: community.zabbix.zabbix_agent
+      vars:
+        zabbix_agent2: true
+        zabbix_agent_server: localhost
+        zabbix_agent_serveractive: localhost
+        zabbix_agent_host_state: present
+    - role: community.zabbix.zabbix_server
+      vars:
+        zabbix_version: "7.0"
+        zabbix_server_database: mysql
+        zabbix_server_db_name: zabbix-server
+        zabbix_server_db_user: zabbix-server
+        zabbix_server_db_password: zabbix-server
+        zabbix_server_db_host: localhost
+        zabbix_server_repo: "zabbix-official"
+    - role: community.zabbix.zabbix_web
+      vars:
+        zabbix_server_name: "SmEjDiL Zabbix"
+        zabbix_web_http_server: apache
+        zabbix_timezone: Europe/Prague
+        zabbix_server_hostname: zabbix
+        zabbix_server_database: mysql
+        zabbix_db_type_long: mysql
+        zabbix_server_dbport: 3306
+...
