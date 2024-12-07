@@ -7,7 +7,7 @@ Samostatná práce - instalace Zabbix serveru pomocí Vagrant a automatizace
 
 ## Instalace Zabbix serveru a agenta pomocí Vagrant a Ansible
 
-Vagrantfile obsahuje instalaci [Ansible](https://www.ansible.com/, Ansible collection [community.zabbix](https://galaxy.ansible.com/ui/repo/published/community/zabbix/) a další pomocné role. Dále se používá provisioning [ansible_local](https://developer.hashicorp.com/vagrant/docs/provisioning/ansible_local) pro zpuštění Ansible [playbooku](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html).
+Vagrantfile obsahuje instalaci [Ansible](https://www.ansible.com), Ansible collection [community.zabbix](https://galaxy.ansible.com/ui/repo/published/community/zabbix/) a další pomocné role. Dále se používá provisioning [ansible_local](https://developer.hashicorp.com/vagrant/docs/provisioning/ansible_local) pro zpuštění Ansible [playbooku](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html).
 
 ## 1. Příprava projektu
 
@@ -26,6 +26,14 @@ Vagrantfile obsahuje instalaci [Ansible](https://www.ansible.com/, Ansible colle
 - Instalace a konfigurace Zabbix serveru.
 - Instalace a konfigurace Zabbix agenta.
 
+```console
+git clone https://github.com/sposdknl/zabbix01-smejdil.git
+cd zabbix01-smejdil
+vagrant up
+vagrant ssh
+
+http://localhost:8080/zabbix/
+```
 ## 3. Monitoring
 ### Monitorujte SSL certifikát školního webu
 
