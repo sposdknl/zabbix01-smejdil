@@ -32,9 +32,9 @@ Vagrant.configure("2") do |config|
     SHELL
 
     config.vm.provision "ansible_local" do |ansible|
-    	ansible.playbook = "playbook.yml"
+    	ansible.playbook = "./Ansible/install-zabbix-server.yml"
 	ansible.compatibility_mode = "2.0"
-	ansible.inventory_path = "hosts.ini"
+	ansible.inventory_path = "./Ansible/hosts.ini"
 	ansible.limit = 'all'
 	ansible.verbose = 'v'
     end

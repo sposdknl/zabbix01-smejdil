@@ -1,0 +1,43 @@
+---
+- name: Install Zabbix Server
+  hosts: zabbix
+
+  tasks:
+    - name: Create a new host sposdk.cz
+      vars:
+        ansible_network_os: community.zabbix.zabbix
+        ansible_connection: httpapi
+        ansible_httpapi_port: 80
+        ansible_httpapi_use_ssl: false
+        ansible_httpapi_validate_certs: false
+        ansible_zabbix_url_path: "zabbix"
+        zabbix_url: http://localhost/zabbix/api_jsonrpc.php
+        zabbix_user: Admin
+        zabbix_password: zabbix
+        ansible_httpapi_pass: zabbix
+      community.zabbix.zabbix_host:
+        host_name: sposdk.cz
+        visible_name: SPOS Web Cert
+        description: Web server SPOS
+        host_groups:
+          - Web Certificate
+        link_templates:
+          - Website certificate by Zabbix agent 2
+        status: enabled
+        state: present
+        inventory_mode: automatic
+        interfaces:
+          - type: 1
+            main: 1
+            useip: 1
+            ip: 127.0.0.1
+            dns: ""
+            port: "10050"
+        macros:
+          - macro: "{$CERT.WEBSITE.HOSTNAME}"
+            value: sposdk.cz
+            description: The website DNS name for the connection.
+        tags:
+          - tag: target
+            value: cert
+...
