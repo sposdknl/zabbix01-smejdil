@@ -39,4 +39,12 @@ Vagrant.configure("2") do |config|
 	ansible.verbose = 'v'
     end
 
+    config.vm.provision "ansible_local" do |ansible|
+    	ansible.playbook = "./Ansible/add-host.sposdk.yml"
+	ansible.compatibility_mode = "2.0"
+	ansible.inventory_path = "./Ansible/hosts.ini"
+	ansible.limit = 'all'
+	ansible.verbose = 'v'
+    end
+
 end

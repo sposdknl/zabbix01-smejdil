@@ -1,6 +1,6 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/UnL7NDUC)
 
-# Automatická instalace Zabbix server pomocí Ansible 
+# Automatická instalace Zabbix serveru
 Independent work - Zabbix server installation using Vagrant and automation
 
 Samostatná práce - instalace Zabbix serveru pomocí Vagrant a automatizace
@@ -11,20 +11,23 @@ Vagrantfile obsahuje instalaci [Ansible](https://www.ansible.com), Ansible colle
 
 ## 1. Příprava projektu
 
-- Použt Box Ubuntu 24.04 LTS - [bento/ubuntu-24.04](https://portal.cloud.hashicorp.com/vagrant/discover/bento/ubuntu-24.04)
+- Použit Box Ubuntu 24.04 LTS - [bento/ubuntu-24.04](https://portal.cloud.hashicorp.com/vagrant/discover/bento/ubuntu-24.04)
 
 ## 2. Instalace Zabbixu 7.0 LTS
 
-- Nainstalován webový server Apache 2.4
-- Nainstalována databáze MySQL 8.0
-- Nainstalován Zabbix 7.0 LTS
-- Nainstalován Zabbix agent2 7.0 LTS
+- Nainstalován webový server Apache 2.4.58
+- Nainstalováo PHP 8.3.6
+- Nainstalována databáze MySQL 8.0.40
+- Nainstalován Zabbix 7.0.6 LTS
+- Nainstalován Zabbix agent2 7.0.6 LTS
 
-#### Automatizovaná instalace
+### Automatizovaná instalace
 
-- Použit provisioning nástroj Ansible
-- Instalace a konfigurace Zabbix serveru.
-- Instalace a konfigurace Zabbix agenta.
+- Použit provisioning metoda ansible_local
+- Instalace a konfigurace Apache + PHP
+- Instalace a konfigurace Zabbix serveru
+- Konfigurace zabbix serveru - CacheSize, StartPollers atd.
+- Instalace a konfigurace Zabbix agenta
 
 ```console
 git clone https://github.com/sposdknl/zabbix01-smejdil.git
@@ -37,7 +40,9 @@ http://localhost:8080/zabbix/
 ## 3. Monitoring
 ### Monitorujte SSL certifikát školního webu
 
-- Importuován host sposdk.cz - sposdk.cz_hosts.yaml
+- Pomocí Ansible vytvořena Host Group - Web Certificate
+- Pomocí Ansible vytvořen Host sposdk.cz
+- Elimanace manuálních úkonů - importuován host sposdk.cz - sposdk.cz_hosts.yaml
 
 ## 4. Důležité soubory
 

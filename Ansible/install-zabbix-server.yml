@@ -26,6 +26,13 @@
         zabbix_server_db_password: zabbix-server
         zabbix_server_db_host: localhost
         zabbix_server_repo: "zabbix-official"
+        zabbix_server_cachesize: "64M"
+        zabbix_server_historycachesize: "32M"
+        zabbix_server_historyindexcachesize: "8M"
+        zabbix_server_startpollers: "6"
+        zabbix_server_startagentpollers: "3"
+        zabbix_server_startpingers: "3"
+        zabbix_server_valuecachesize: "16M"
     - role: community.zabbix.zabbix_web
       vars:
         zabbix_server_name: "SmEjDiL Zabbix"
