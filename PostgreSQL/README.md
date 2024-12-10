@@ -42,6 +42,7 @@ http://localhost:8081/zabbix/
 
 - Pomocí Ansible vytvořena Host Group - Web Certificate
 - Pomocí Ansible vytvořen Host sposdk.cz
+- Pomocí Ansible vytvořen Host postgresql
 - Elimanace manuálních úkonů - importuován host sposdk.cz - sposdk.cz_hosts.yaml
 
 ## 4. Důležité soubory
