@@ -5,6 +5,10 @@
 
   roles:
     - role: geerlingguy.postgresql
+      vars:
+        postgresql_users:
+          - name: zbx_monitor
+            password: zabbix-server
     - role: geerlingguy.apache
     - role: geerlingguy.php
       vars:

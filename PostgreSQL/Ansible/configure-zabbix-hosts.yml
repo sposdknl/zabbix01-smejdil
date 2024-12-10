@@ -48,4 +48,43 @@
         tags:
           - tag: target
             value: cert
+
+    - name: Create a new host postgresql
+      community.zabbix.zabbix_host:
+        state: present
+        host_name: postgresql
+        visible_name: Zabbix PostgreSQL
+        description: Zabbix Database PostgreSQL
+        host_groups:
+          - Databases
+        link_templates:
+          - PostgreSQL by Zabbix agent 2
+        status: enabled
+        inventory_mode: automatic
+        interfaces:
+          - type: 1
+            main: 1
+            useip: 1
+            ip: 127.0.0.1
+            dns: ""
+            port: "10050"
+        macros:
+          - macro: "{$PG.USER}"
+            value: zbx_monitor
+          - macro: "{$PG.PASSWORD}"
+            value: zabbix-server
+        tags:
+          - tag: target
+            value: postgresql
+
+    - name: Install Zabbix Agent 2 and PostgreSQL plugin
+      package:
+        name:
+          - zabbix-agent2-plugin-postgresql
+        state: present
+
+    - name: Restart zabbix-agent2 service
+      service:
+        name: zabbix-agent2
+        state: restarted
 ...

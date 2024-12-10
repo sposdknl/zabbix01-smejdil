@@ -3,8 +3,6 @@
 # Automatická instalace Zabbix serveru
 Independent work - Zabbix server installation using Vagrant and automation
 
-![Zabbix and Ansible by AI](./Images/Zabbix-Ansible2.webp)
-
 Samostatná práce - instalace Zabbix serveru pomocí Vagrant a automatizace
 
 ## Instalace Zabbix serveru a agenta pomocí Vagrant a Ansible
@@ -33,12 +31,6 @@ Vagrantfile obsahuje instalaci [Ansible](https://www.ansible.com), Ansible colle
 
 ```console
 git clone https://github.com/sposdknl/zabbix01-smejdil.git
-cd zabbix01-smejdil/MySQL
-vagrant up
-vagrant ssh
-
-http://localhost:8080/zabbix/
-
 cd zabbix01-smejdil/PostgreSQL
 vagrant up
 vagrant ssh

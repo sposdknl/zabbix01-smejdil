@@ -3,8 +3,6 @@
 # Automatická instalace Zabbix serveru
 Independent work - Zabbix server installation using Vagrant and automation
 
-![Zabbix and Ansible by AI](./Images/Zabbix-Ansible2.webp)
-
 Samostatná práce - instalace Zabbix serveru pomocí Vagrant a automatizace
 
 ## Instalace Zabbix serveru a agenta pomocí Vagrant a Ansible
