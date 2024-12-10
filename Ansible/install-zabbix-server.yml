@@ -29,10 +29,22 @@
         zabbix_server_cachesize: "64M"
         zabbix_server_historycachesize: "32M"
         zabbix_server_historyindexcachesize: "8M"
+        zabbix_server_valuecachesize: "16M"
         zabbix_server_startpollers: "6"
         zabbix_server_startagentpollers: "3"
         zabbix_server_startpingers: "3"
-        zabbix_server_valuecachesize: "16M"
+        zabbix_server_startjavapollers: "1"
+        zabbix_server_startipmipollers: "1"
+        zabbix_server_startreportwriters: "0"
+        zabbix_server_startsnmptrapper: "0"
+        zabbix_server_startvmwarecollectors: "1"
+        zabbix_server_javagateway: localhost
+        zabbix_server_javagatewayport: "10052"
+    - role: community.zabbix.zabbix_javagateway
+      vars:
+        zabbix_javagateway_listenip: localhost
+        zabbix_javagateway_listenport: "10052"
+        zabbix_javagateway_startpollers: "3"
     - role: community.zabbix.zabbix_web
       vars:
         zabbix_server_name: "SmEjDiL Zabbix"
