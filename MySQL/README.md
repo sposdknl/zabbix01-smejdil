@@ -20,7 +20,6 @@ Vagrantfile obsahuje instalaci [Ansible](https://www.ansible.com), Ansible colle
 - Nainstalován webový server Apache 2.4.58
 - Nainstalováo PHP 8.3.6
 - Nainstalována databáze MySQL 8.0.40
-- Nainstalována databáze PostgreSQL 16.6
 - Nainstalován Zabbix 7.0.6 LTS
 - Nainstalován Zabbix agent2 7.0.6 LTS
 
@@ -39,12 +38,6 @@ vagrant up
 vagrant ssh
 
 http://localhost:8080/zabbix/
-
-cd zabbix01-smejdil/PostgreSQL
-vagrant up
-vagrant ssh
-
-http://localhost:8081/zabbix/
 ```
 ## 3. Monitoring
 ### Monitorujte SSL certifikát školního webu

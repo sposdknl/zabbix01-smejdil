@@ -1,10 +1,10 @@
 ---
-- name: Install Zabbix Server
+- name: Install Zabbix Server with PostgreSQL
   hosts: zabbix
   become: true
 
   roles:
-    - role: geerlingguy.mysql
+    - role: geerlingguy.postgresql
     - role: geerlingguy.apache
     - role: geerlingguy.php
       vars:
@@ -20,7 +20,7 @@
     - role: community.zabbix.zabbix_server
       vars:
         zabbix_version: "7.0"
-        zabbix_server_database: mysql
+        zabbix_server_database: pgsql
         zabbix_server_db_name: zabbix-server
         zabbix_server_db_user: zabbix-server
         zabbix_server_db_password: zabbix-server
@@ -51,7 +51,7 @@
         zabbix_web_http_server: apache
         zabbix_timezone: Europe/Prague
         zabbix_server_hostname: zabbix
-        zabbix_server_database: mysql
-        zabbix_db_type_long: mysql
-        zabbix_server_dbport: 3306
+        zabbix_server_database: pgsql
+        zabbix_db_type_long: postgresql
+        zabbix_server_dbport: 5432
 ...
