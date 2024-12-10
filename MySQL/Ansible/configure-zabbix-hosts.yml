@@ -48,4 +48,34 @@
         tags:
           - tag: target
             value: cert
+
+    - name: Create a new host mysql
+      community.zabbix.zabbix_host:
+        state: present
+        host_name: mysql
+        visible_name: Zabbix MySQL
+        description: Zabbix Database MySQL
+        host_groups:
+          - Databases
+        link_templates:
+          - MySQL by Zabbix agent 2
+        status: enabled
+        inventory_mode: automatic
+        interfaces:
+          - type: 1
+            main: 1
+            useip: 1
+            ip: 127.0.0.1
+            dns: ""
+            port: "10050"
+        macros:
+          - macro: "{$MYSQL.USER}"
+            value: zbx_monitor
+          - macro: "{$MYSQL.PASSWORD}"
+            value: zabbix-server
+          - macro: "{$MYSQL.DSN}"
+            value: unix:/var/run/mysqld/mysqld.sock
+        tags:
+          - tag: target
+            value: mysql
 ...

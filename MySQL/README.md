@@ -44,6 +44,7 @@ http://localhost:8080/zabbix/
 
 - Pomocí Ansible vytvořena Host Group - Web Certificate
 - Pomocí Ansible vytvořen Host sposdk.cz
+- Pomocí Ansible vytvořen Host mysql
 - Elimanace manuálních úkonů - importuován host sposdk.cz - sposdk.cz_hosts.yaml
 
 ## 4. Důležité soubory

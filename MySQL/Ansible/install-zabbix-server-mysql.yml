@@ -5,6 +5,12 @@
 
   roles:
     - role: geerlingguy.mysql
+      vars:
+        mysql_users:
+          - name: zbx_monitor
+            host: "%"
+            password: zabbix-server
+            priv: "zabbix-server.*:ALL"
     - role: geerlingguy.apache
     - role: geerlingguy.php
       vars:
