@@ -36,7 +36,7 @@ sudo cp /home/vagrant/zabbix.conf /usr/local/etc/apache24/extra/
 sudo cp /usr/local/etc/apache24/httpd.conf /usr/local/etc/apache24/httpd.conf-orig
 sudo cp /home/vagrant/httpd.conf.patch /usr/local/etc/apache24/
 sudo cd /usr/local/etc/apache24/
-sudo patch httpd.conf < httpd.conf.patch
+sudo patch /usr/local/etc/apache24/httpd.conf < /usr/local/etc/apache24/httpd.conf.patch
 sudo cp /home/vagrant/zabbix.conf.php /usr/local/www/zabbix7/conf/
 sudo chown www:www /usr/local/www/zabbix7/conf/zabbix.conf.php
 sudo chmod 400 /usr/local/www/zabbix7/conf/zabbix.conf.php
