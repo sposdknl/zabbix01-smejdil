@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Instalace balicku net-tools
-#sudo dnf update
+sudo dnf update
 
 # Stažení balíčku pro instalaci zabbix repo
 sudo  rpm -Uvh https://repo.zabbix.com/zabbix/7.0/oracle/9/x86_64/zabbix-release-latest-7.0.el9.noarch.rpm

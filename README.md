@@ -21,10 +21,10 @@ Vagrantfile obsahuje instalaci [Ansible](https://www.ansible.com), Ansible colle
 - Nainstalováo PHP 8.3.6
 - Nainstalována databáze MySQL 8.0.40
 - Nainstalována databáze PostgreSQL 16.6
-- Nainstalován Zabbix 7.0.6 LTS
-- Nainstalován Zabbix agent2 7.0.6 LTS
+- Nainstalován Zabbix 7.0.7 LTS
+- Nainstalován Zabbix agent2 7.0.7 LTS
 
-### Automatizovaná instalace
+### Automatizovaná instalace Ansible
 
 - Použit provisioning metoda ansible_local
 - Instalace a konfigurace Apache + PHP
@@ -34,17 +34,17 @@ Vagrantfile obsahuje instalaci [Ansible](https://www.ansible.com), Ansible colle
 
 ```console
 git clone https://github.com/sposdknl/zabbix01-smejdil.git
-cd zabbix01-smejdil/MySQL
+cd zabbix01-smejdil/Ubuntu-Zabbix-server-MySQL
 vagrant up
 vagrant ssh
 
-http://localhost:8080/zabbix/
+http://localhost:8082/zabbix/
 
-cd zabbix01-smejdil/PostgreSQL
+cd zabbix01-smejdil/Ubuntu-Zabbix-server-PostgreSQL
 vagrant up
 vagrant ssh
 
-http://localhost:8081/zabbix/
+http://localhost:8083/zabbix/
 ```
 ## 3. Monitoring
 ### Monitorujte SSL certifikát školního webu
@@ -63,3 +63,24 @@ http://localhost:8081/zabbix/
 | zabbix.conf.php               | Zabbix frontend |
 | apache.conf                   | Apache          |
 | mysql.ini                     | MariaDB         |
+
+## 5. Další varianty instalace
+### Zabbix instalace RockyLinux pomoci shell provision
+```console
+git clone https://github.com/sposdknl/zabbix01-smejdil.git
+cd zabbix01-smejdil/OracleLinux-Zabbix-server
+vagrant up
+vagrant ssh
+
+http://localhost:8081/zabbix/
+```
+
+### Zabbix instalace FreeBSD pomoci shell provision
+```console
+git clone https://github.com/sposdknl/zabbix01-smejdil.git
+cd zabbix01-smejdil/FreeBSD-Zabbix-server
+vagrant up
+vagrant ssh
+
+http://localhost:8089/zabbix/
+```

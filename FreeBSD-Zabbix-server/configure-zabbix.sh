@@ -42,7 +42,7 @@ sudo chown www:www /usr/local/www/zabbix7/conf/zabbix.conf.php
 sudo chmod 400 /usr/local/www/zabbix7/conf/zabbix.conf.php
 sudo /usr/local/etc/rc.d/apache24 restart
 
-# # Konfigurace zabbix_agent2.conf
+# Konfigurace zabbix_agent2.conf
 sudo cp -v /usr/local/etc/zabbix7/zabbix_agentd.conf /usr/local/etc/zabbix7/zabbix_agentd.conf-orig
 sudo gsed -i 's/Server=127.0.0.1/Server=localhost/g' /usr/local/etc/zabbix7/zabbix_agentd.conf
 sudo gsed -i 's/ServerActive=127.0.0.1/ServerActive=localhost/g' /usr/local/etc/zabbix7/zabbix_agentd.conf

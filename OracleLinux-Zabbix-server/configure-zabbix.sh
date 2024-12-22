@@ -39,4 +39,9 @@ sudo diff -u /etc/zabbix/zabbix_agent2.conf-orig /etc/zabbix/zabbix_agent2.conf
 # Restart sluzby zabbix-agent2
 sudo systemctl restart zabbix-agent2
 
+# Konfigure Zabbix frontend
+sudo cp -v /vagrant/zabbix.conf.php /etc/zabbix/web/
+sudo chmod 400 /etc/zabbix/web/zabbix.conf.php
+sudo chown apache:apache /etc/zabbix/web/zabbix.conf.php
+
 # EOF
