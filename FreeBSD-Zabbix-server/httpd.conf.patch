@@ -1,0 +1,30 @@
+--- httpd.conf-orig	2024-12-22 15:28:43.502747000 +0000
++++ httpd.conf	2024-12-22 15:39:17.383070000 +0000
+@@ -445,6 +445,17 @@
+ </IfModule>
+ 
+ #
++# PHP configuration
++#
++
++<IfModule dir_module>
++    DirectoryIndex index.php index.html
++</IfModule>
++
++AddHandler application/x-httpd-php .php
++AddHandler application/x-httpd-php-source .phps
++
++#
+ # The mod_mime_magic module allows the server to use various hints from the
+ # contents of the file itself to determine its type.  The MIMEMagicFile
+ # directive tells the module where the hint definitions are located.
+@@ -487,6 +498,9 @@
+ # included to add extra features or to modify the default configuration of 
+ # the server, or you may simply copy their contents here and change as 
+ # necessary.
++
++# Zabbix7 frontend php83
++Include etc/apache24/extra/zabbix.conf
+ 
+ # Server-pool management (MPM specific)
+ #Include etc/apache24/extra/httpd-mpm.conf
