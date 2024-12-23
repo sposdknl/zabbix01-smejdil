@@ -10,6 +10,6 @@ cd zabbix01-smejdil/FreeBSD-Zabbix-server
 vagrant up
 vagrant ssh
 
-http://localhost:8080/zabbix/
+http://localhost:8087/zabbix/
 ```
 ...

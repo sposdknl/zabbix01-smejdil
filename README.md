@@ -64,15 +64,15 @@ http://localhost:8083/zabbix/
 | apache.conf                   | Apache          |
 | mysql.ini                     | MariaDB         |
 
-## 5. Další varianty instalace
-### Zabbix instalace RockyLinux pomoci shell provision
+## 5. Další varianty Zabbix instalace
+### Zabbix instalace OracleLinux pomoci shell provision
 ```console
 git clone https://github.com/sposdknl/zabbix01-smejdil.git
 cd zabbix01-smejdil/OracleLinux-Zabbix-server
 vagrant up
 vagrant ssh
 
-http://localhost:8081/zabbix/
+http://localhost:8084/zabbix/
 ```
 
 ### Zabbix instalace FreeBSD pomoci shell provision
@@ -82,5 +82,15 @@ cd zabbix01-smejdil/FreeBSD-Zabbix-server
 vagrant up
 vagrant ssh
 
-http://localhost:8089/zabbix/
+http://localhost:8087/zabbix/
+```
+
+### Zabbix instalace Ubuntu pomoci Docker
+```console
+git clone https://github.com/sposdknl/zabbix01-smejdil.git
+cd zabbix01-smejdil/Ubuntu-Zabbix-server-Docker
+vagrant up
+vagrant ssh
+
+http://localhost:8086
 ```

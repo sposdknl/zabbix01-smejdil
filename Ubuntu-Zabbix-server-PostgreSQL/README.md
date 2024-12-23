@@ -31,11 +31,11 @@ Vagrantfile obsahuje instalaci [Ansible](https://www.ansible.com), Ansible colle
 
 ```console
 git clone https://github.com/sposdknl/zabbix01-smejdil.git
-cd zabbix01-smejdil/PostgreSQL
+cd zabbix01-smejdil/Ubuntu-Zabbix-server-PostgreSQL
 vagrant up
 vagrant ssh
 
-http://localhost:8081/zabbix/
+http://localhost:8083/zabbix/
 ```
 ## 3. Monitoring
 ### Monitorujte SSL certifikát školního webu

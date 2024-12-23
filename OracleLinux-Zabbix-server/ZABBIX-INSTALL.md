@@ -76,7 +76,7 @@ Zabbix - [https://www.zabbix.com](https://www.zabbix.com)
 ```
 ## Provedeme konfiguraci Zabbix Web GUI pomocí PHP wizard
 
-- Zadejte do browseru - http://localhost:8089/zabbix/
+- Zadejte do browseru - http://localhost:8084/zabbix/
 - Username: Admin
 - Passwoed: zabbix
 ...
